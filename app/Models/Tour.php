@@ -20,6 +20,7 @@ class Tour extends Model
         'price',
     ];
 
+    // Getters and Setters for the price attribute
     public function price(): Attribute
     {
         return Attribute::make(
@@ -28,11 +29,13 @@ class Tour extends Model
         );
     }
 
+    // Get the price
     // public function getPriceAttribute()
     // {
     //     return $this->price / 100;
     // }
 
+    // Set the price
     // public function setPriceAttribute($value)
     // {
     //     $this->attributes['price'] = $value * 100;
