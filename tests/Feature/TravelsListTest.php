@@ -7,12 +7,14 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class TravelListTest extends TestCase
+class TravelsListTest extends TestCase
 {
     use RefreshDatabase;
     public function test_travels_list_returns_paginated_data_correcly(): void
     {
-        Travel::factory(16)->create(['is_public' => true]);
+        Travel::factory(16)->create([
+            'is_public' => true
+        ]);
         $response = $this->get('/api/v1/travels');
         $response->assertStatus(200);
         $response->assertJsonCount(15, 'data');
@@ -20,7 +22,9 @@ class TravelListTest extends TestCase
     }
     public function test_travels_list_shows_only_public_records(): void
     {
-        $publicTravel = Travel::factory()->create(['is_public' => true]);
+        $publicTravel = Travel::factory()->create([
+            'is_public' => true
+        ]);
         Travel::factory()->create(['is_public' => false]);
         $response = $this->get('/api/v1/travels');
         $response->assertStatus(200);
