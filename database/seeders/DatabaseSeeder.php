@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        // Travel::factory(100)->create();
+        Travel::factory(10)->create();
         Tour::factory(100)->create();
     }
 }
